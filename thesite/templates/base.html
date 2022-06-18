@@ -52,6 +52,9 @@
               {% if user.profile.id %}
                   <a href="{% url 'edit_profile_page' user.profile.id %}">Edit Profile</a>
                   <a href="{% url 'show_profile_page' user.profile.id %}">View Profile</a>
+                  {% if request.user.is_superuser %}
+                  <a href="{% url 'export_users_xls' %}">Export User Info</a>
+                  {% endif %}
 
               {% else %}
                   <a href="{% url 'create_profile_page' %}">Add Profile</a>

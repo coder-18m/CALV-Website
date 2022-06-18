@@ -23,4 +23,5 @@ urlpatterns = [
     path('category/<str:cats>/', CategoryView, name='category'),
     path('like/<int:pk>', LikeView, name='like_post'),
     path('article/<int:pk>/comment/', AddCommentView.as_view(), name='add_comment'),
+    path(r'^export/xls/$', views.export_users_xls, name='export_users_xls'),
 ]
