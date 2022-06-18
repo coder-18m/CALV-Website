@@ -55,7 +55,7 @@ CALV | {{ post.title }}
   <br>
   {{ post.body|safe|linebreaksbr }}
   <br><br>
-  <a href="{% url 'home' %}"> <i class="fa-solid fa-arrow-left"></i> Back</a>
+
   </h1>
 </div>
 
@@ -63,38 +63,42 @@ CALV | {{ post.title }}
 <br>
 <hr style="margin-left: 20px; margin-right: 20px;">
 <br>
-<h2 style="margin-left: 20px; ">Comments</h2>
+<h2 style="margin-left: 20px; font-family: 'Barlow Condensed', sans-serif;">Comments</h2>
 <br>
+<div style="margin-left: 20px; margin-right: 20px;"class="">
+
 {% if not post.comments.all %}
-  No Comments Yet
-  <br>
+  <small style="font-family: 'Ubuntu', sans-serif;">No Comments Yet</small>
+
   <br>
   {% if user.is_authenticated %}
-      <a href="{% url 'add_comment' post.pk %}">Add Comment</a>
+      <a style="float: right;" class="add-com-btn" href="{% url 'add_comment' post.pk %}">Add Comment...</a>
   {% else %}
-  <a href="{% url 'login' %}">Add Comment</a>
+  <a style="float: right;" class="add-com-btn" href="{% url 'login' %}">Add Comment...</a>
   {% endif %}
 {% else %}
 
 {% if user.is_authenticated %}
-    <a href="{% url 'add_comment' post.pk %}">Add Comment</a>
+    <a style="float: right;" class="add-com-btn" href="{% url 'add_comment' post.pk %}">Add Comment...</a>
 {% else %}
-<a href="{% url 'login' %}">Add Comment</a>
+<a style="float: right;" class="add-com-btn" href="{% url 'login' %}">Add Comment...</a>
 {% endif %}
 
+<br>
 <br>
 <br>
 
   {% for comment in post.comments.all %}
-  {{ comment.name }} - {{ comment.date_added }}
+  <strong style="font-family: 'Ubuntu', sans-serif; margin-right: 8px;">{{ comment.name }}</strong> <small style="font-family: 'Ubuntu', sans-serif;">{{ comment.date_added }}</small>
   <br>
-  {{ comment.body }}
+  <p style="font-family: 'Ubuntu', sans-serif; margin-top: 4px;">{{ comment.body }}</p>
   <br><br>
   {% endfor %}
 {% endif %}
-<br>
-<br>
-<hr style="margin-left: 20px; margin-right: 20px;">
+</div>
+
+
+<hr style="margin-left: 20px; margin-right: 20px; margin-top: 50px;">
 <br>
 <div class="author-container" >
   <div class="auth-item-1" >
