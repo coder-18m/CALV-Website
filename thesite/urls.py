@@ -1,6 +1,6 @@
 from django.urls import path
 from . import views
-from .views import HomeView, ArticleDetailView, AddPostView, UpdatePostView, DeletePostView, AddCategoryView, CategoryView, DevelopmentView, DevelopmentMapView, TransportMapView, SchoolsMapView, SampleLetterView, ContactView, FireView, EditView, LikeView, AddCommentView
+from .views import HomeView, ArticleDetailView, AddPostView, UpdatePostView, DeletePostView, AddCategoryView, CategoryView, DevelopmentView, DevelopmentMapView, TransportMapView, SchoolsMapView, SampleLetterView, FireView, EditView, LikeView, AddCommentView
 
 urlpatterns = [
     path('', views.index, name='index'),
@@ -9,7 +9,7 @@ urlpatterns = [
     path('transportmap/', TransportMapView.as_view(), name="transportmap"),
     path('schoolsmap/', SchoolsMapView.as_view(), name='schoolsmap'),
     path('sampleleter/', SampleLetterView.as_view(), name="sampleleter"),
-    path('contact/', ContactView.as_view(), name="contact"),
+    path('contact/', views.contact, name="contact"),
     path('fire/', FireView.as_view(), name="fire"),
     path('editletter/', EditView.as_view(), name="editletter"),
 

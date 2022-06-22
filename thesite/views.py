@@ -74,8 +74,14 @@ class SchoolsMapView(TemplateView):
 class SampleLetterView(TemplateView):
     template_name = 'sample_letter.html'
 
-class ContactView(TemplateView):
-    template_name = 'contact.html'
+#class ContactView(TemplateView):
+#    template_name = 'contact.html'
+
+def contact(request):
+
+
+    
+    return render(request, 'contact.html', {})
 
 class FireView(TemplateView):
     template_name = 'fire.html'

@@ -6,13 +6,30 @@ CALV | Contact
 
 
   {% block content %}
+
   <h1 class="about-header" id="aboutItem">Contact</h1>
   <hr class="about-hr">
+
   <p class="about-p">Mayor's office - <a id="contact-id" target="_blank" href="https://my.spokanecity.org/mayor/">https://my.spokanecity.org/mayor/</a>
     <br></br> Spokane City Council - <a target="_blank" id="contact-id" href="https://my.spokanecity.org/citycouncil/">https://my.spokanecity.org/citycouncil/</a> <br></br>
      Spokesman-Review: <a href="https://www.spokesman.com/letters/">https://www.spokesman.com/letters/</a> <br></br> The Inlander: <a href="The Inlander: https://www.inlander.com/spokane/ReachUs/Page">The Inlander: https://www.inlander.com/spokane/ReachUs/Page</a>
    </p><br></br>
 
+   <div class="container">
+    <form action="{% url 'contact' %}" method="POST">
+      {% csrf_token %}
+     		<div class="contact-box">
+     			<div class="left"></div>
+     			<div class="right">
+     				<h2 class="contact-form-h2">Contact Us</h2>
+     				<input type="text" class="field" placeholder="Your Name">
+     				<input type="text" class="field" placeholder="Your Email">
+     				<textarea id="textarea-1" placeholder="Message" class="field"></textarea>
+     				<button class="btn">Send</button>
+     			</div>
+     		</div>
+    </form>
+ 	</div>
   <h1 class="about-call">CONTACT INFORMATION FOR CITY COUNCIL AND MAYOR</h1>
   <hr class="about-hr-2">
   <div class="pack-container">
