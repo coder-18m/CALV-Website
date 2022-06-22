@@ -117,6 +117,15 @@ body{
     background-color: #fff;
 }
 
+.thanks-email{
+  letter-spacing: 2px;
+    font-family: 'Barlow Condensed', sans-serif;
+}
+
+.thanks-p{
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 20px;
+}
 @media screen and (max-width: 880px){
 	.contact-box{
 		grid-template-columns: 1fr;

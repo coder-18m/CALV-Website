@@ -4,6 +4,7 @@ from .models import Post, Category, Comment
 from .forms import PostForm, CommentForm
 from django.urls import reverse_lazy, reverse
 from django.http import HttpResponseRedirect
+from django.core.mail import send_mail
 
 import xlwt
 
@@ -76,12 +77,25 @@ class SampleLetterView(TemplateView):
 
 #class ContactView(TemplateView):
 #    template_name = 'contact.html'
+# contactCALV@gmail.com
 
 def contact(request):
+    if request.method == "POST":
+        message_name = request.POST['message-name']
+        message_email = request.POST['message-email']
+        message = request.POST['message']
 
+        # send an email
+        send_mail(
+            'Message from ' + message_name, # subject
+            message, # message
+            message_email, # from email
+            ['clairemiller@outlook.com'], # To email
+            )
 
-    
-    return render(request, 'contact.html', {})
+        return render(request, 'contact.html', {'message_name': message_name})
+    else:
+        return render(request, 'contact.html', {})
 
 class FireView(TemplateView):
     template_name = 'fire.html'
