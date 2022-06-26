@@ -14,6 +14,14 @@ import os
 import django_on_heroku
 import dj_database_url
 
+import environ
+
+env = environ.Env()
+
+environ.Env.read_env()
+
+
+
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -136,14 +144,27 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 WHITENOISE_USE_FINDERS = True
 
 # Email settings
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_PORT = '587'
-EMAIL_HOST_USER = 'clairemiller@outlook.com'
-EMAIL_HOST_PASSWORD = ''
-EMAIL_USE_TLS = True
+# myaccount.google.com/lesssecureapps
+
+#EMAIL_PORT = '587'
+#EMAIL_HOST_USER = 'contactCALV@gmail.com'
+#EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD', 'default')
+#EMAIL_USE_TLS = True
 # EMAIL_USE_SSL = False
 
+# testing email
+#EMAIL_HOST = 'smtp.mailtrap.io'
+#EMAIL_HOST_USER = '44f9be80f14246'
+#EMAIL_HOST_PASSWORD = 'beab8a86ba2087'
+#EMAIL_PORT = '2525'
 
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST = 'smtp-mail.outlook.com'
+#EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD', 'default')
+EMAIL_HOST_PASSWORD='tEhiduj0316'
+EMAIL_HOST_USER = "clairemiller@outlook.com"
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
