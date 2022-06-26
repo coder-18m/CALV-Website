@@ -1,5 +1,8 @@
 from django.urls import path
 from . import views
+
+from django.contrib.auth import views as auth_views
+
 from .views import HomeView, ArticleDetailView, AddPostView, UpdatePostView, DeletePostView, AddCategoryView, CategoryView, DevelopmentView, DevelopmentMapView, TransportMapView, SchoolsMapView, SampleLetterView, FireView, EditView, LikeView, AddCommentView
 
 urlpatterns = [

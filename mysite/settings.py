@@ -157,14 +157,12 @@ WHITENOISE_USE_FINDERS = True
 #EMAIL_HOST_USER = '44f9be80f14246'
 #EMAIL_HOST_PASSWORD = 'beab8a86ba2087'
 #EMAIL_PORT = '2525'
-
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST = 'smtp-mail.outlook.com'
-#EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD', 'default')
-EMAIL_HOST_PASSWORD='tEhiduj0316'
-EMAIL_HOST_USER = "clairemiller@outlook.com"
+EMAIL_HOST_USER = "annakmiller@outlook.com"
+EMAIL_HOST_PASSWORD = "tEhiduj0316"
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field

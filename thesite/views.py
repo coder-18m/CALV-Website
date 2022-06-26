@@ -81,19 +81,25 @@ class SampleLetterView(TemplateView):
 
 def contact(request):
     if request.method == "POST":
-        message_name = request.POST['message-name']
-        message_email = request.POST['message-email']
-        message = request.POST['message']
+        name = request.POST.get('full-name')
+        email = request.POST.get('email')
+        subject = request.POST.get('subject')
+        message = request.POST.get('message')
 
-        # send an email
-        send_mail(
-            'Message from ' + message_name, # subject
-            message, # message
-            message_email, # from email
-            ['clairemiller@outlook.com'], # To email
-            )
+        data = {
+                'name': name,
+                'email': email,
+                'subject': subject,
+                'message': message
+        }
+        message = '''
+        {}
+        From: {}
 
-        return render(request, 'contact.html', {'message_name': message_name})
+        '''.format(data['message'], data['email'])
+        send_mail(data['subject'], message, 'annakmiller@outlook.com', ['annakmiller@outlook.com'])
+
+        return render(request, 'contact.html', {'name': name})
     else:
         return render(request, 'contact.html', {})
 

@@ -6,10 +6,10 @@ CALV | Contact
 
 
   {% block content %}
-  {% if message_name %}
+  {% if name %}
   <center>
     <br>
-    <h2 class="thanks-email">Thanks, {{ message_name }}!</h2>
+    <h2 class="thanks-email">Thanks, {{ name }}!</h2>
     <p class="thanks-p" >We received your email and will respond shortly...</p>
   </center>
   <br>
@@ -21,10 +21,11 @@ CALV | Contact
          <div class="left"></div>
          <div class="right">
            <h2 class="contact-form-h2">Contact Us</h2>
-           <input type="text" class="field" name="message-name" placeholder="Your Name">
-           <input type="text" class="field" name="message-email" placeholder="Your Email">
+           <input type="text" class="field" name="full-name" placeholder="Your Name">
+           <input type="text" class="field" name="email" placeholder="Your Email">
+           <input type="text" class="field" name="subject" placeholder="Subject">
            <textarea id="textarea-1" name="message" placeholder="Message" class="field"></textarea>
-           <button class="btn">Send</button>
+           <button type="Submit" class="btn">Send</button>
          </div>
        </div>
    </form>
